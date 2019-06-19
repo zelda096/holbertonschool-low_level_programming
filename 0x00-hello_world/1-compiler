@@ -1,2 +1,2 @@
 #!/bin/bash
-int CFILE=main.c | tr ".c" ".o" | gcc $CFILE -o c
+gcc $CFILE -c
