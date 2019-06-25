@@ -1,0 +1,17 @@
+#include "holberton.h"
+/**
+* _islower - entry point
+* Des: _islower
+* @c: variable
+*/
+int _islower(int c)
+{
+	if (c >= 'a' && c <= 'z')
+	{
+		return (1);
+	}
+	else
+	{
+		return (0);
+	}
+}
