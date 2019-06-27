@@ -20,5 +20,10 @@ void print_square(int size)
 			}
 			_putchar('\n');
 		}
+		
+	}
+	else
+	{
+		_putchar('\n');
 	}
 }
