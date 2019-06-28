@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 /**
  * main - entry point
@@ -6,7 +5,6 @@
  *
  * Return: 0
  */
-
 int main(void)
 {
 	long int x, y;
