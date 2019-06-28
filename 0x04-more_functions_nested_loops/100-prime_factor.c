@@ -1,7 +1,8 @@
 #include "holberton.h"
+#include <stdio.h>
 /**
  * main - entry point
- * 
+ *
  *
  * Return: 0
  */
@@ -11,7 +12,7 @@ int main(void)
 	long int x, y;
 	long int z = 0;
 	long int bers = 30;
-	long int d = num;
+	long int d = bers;
 
 	for (x = 2; x <= bers ; x++)
 	{
