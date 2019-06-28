@@ -17,11 +17,11 @@ void print_number(int n)
 	c = (((n % 100) - d) / 10);
 	b = (((n % 1000) - c - d) / 100);
 	a = ((n - b - c - d) / 1000);
-	if (n > 999 && n < -999)
+	if (n > 999 || n < -999)
 		_putchar(a + 48);
-	if (n > 99 && n < -99)
+	if (n > 99 || n < -99)
 		_putchar(b + 48);
-	if (n > 9 && n < -9)
+	if (n > 9 || n < -9)
 		_putchar(c + 48);
 	_putchar(d + 48);
 }
