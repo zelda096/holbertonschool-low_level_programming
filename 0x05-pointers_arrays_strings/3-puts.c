@@ -1,10 +1,8 @@
 #include "holberton.h"
 /**
- * _puts - print
- *
- * @str: var pointer
- *
- * Return in 0
+ * _puts - prints a string.
+ * @str : pointer-parameter
+ * Return: ntg.
  */
 void _puts(char *str)
 {
@@ -14,7 +12,6 @@ void _puts(char *str)
 	{
 		if (str[x] == '\0')
 			break;
-		
 		_putchar(str[x]);
 	}
 	_putchar('\n');
