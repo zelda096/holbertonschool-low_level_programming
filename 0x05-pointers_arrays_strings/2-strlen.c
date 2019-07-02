@@ -11,7 +11,7 @@ int _strlen(char *s)
 	int begin = 0;
 	int x;
 
-	for (x = 0; x < 10; x++)
+	for (x = 0; x < 500; x++)
 	{
 		if (s[x] == '\0')
 			break;
