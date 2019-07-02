@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main(void)
+
+	int a = 0;
+	char b = -1;
+
+	a = b
+	
+		printf("%c", a);
+	
+	

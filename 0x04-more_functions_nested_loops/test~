@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void)
+{
+	int a = 0;
+	char b = -1;
+
+	if (a = b)
+	{
+		printf("%c", a);
+	}
+	
+}
