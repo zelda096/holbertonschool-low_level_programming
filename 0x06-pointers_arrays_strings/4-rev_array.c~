@@ -1,7 +1,0 @@
-#include "holberton.h"
-/**
- * _strcat - function para concatenate
- *@dest: pointer variable
- *@src: pointer variable two
- *Return: 0
- */
