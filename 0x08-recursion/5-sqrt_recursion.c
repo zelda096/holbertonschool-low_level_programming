@@ -1,28 +1,26 @@
 #include "holberton.h"
 /**
- * _sqrt_recursion - entry point
- * @n: int
- * Return: n square root -1 if no square root
-*/
-int _sqrt_recursion(int n)
+ * comp - evalue result
+ * @n: value
+ * @aux: auxiliar
+ * Return: aux
+ */
+int comp(int aux, int n)
 {
-	return (sqrt_nl_root(n, 1));
+	if (aux * aux == n)
+	{
+		return (aux);
+	}
+	else if (aux * aux > n)
+		return (-1);
+	return (comp(aux + 1, n));
 }
 /**
- * sqrt_nl_root - entry point
- * @i: int
- * @j: int
- * Return: square root
+ * _sqrt_recursion - returns the natural square root of a number.
+ * @n: value
+ * Return: result
  */
-int sqrt_nl_root(int i, int j)
+int _sqrt_recursion(int n)
 {
-	int square = j * j;
-
-	if (square > i)
-		return (-1);
-	if (square == i)
-		return (j);
-	else
-		return (sqrt_nl_root(i, j + 1));
-
+	return (comp(1, n));
 }
