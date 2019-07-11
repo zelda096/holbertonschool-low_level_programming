@@ -1,30 +1,30 @@
 #include "holberton.h"
 /**
- * is_prime_number - entry point
- * @n: int
- * Return: 1 = prime 0 = not
+ * mod - evalue factors of a number.
+ * @n: number
+ * @aux: factor
+ * Return: 0 - 1
+ */
+int mod(int aux, int n)
+{
+	int sum = 0;
+
+	if (aux <= n)
+	{
+		if (n % aux == 0)
+			sum++;
+		return (sum + mod(aux + 1, n));
+	}
+	return (sum);
+}
+/**
+ * is_prime_number - evalue prime number.
+ * @n: number
+ * Return: 0 - 1
  */
 int is_prime_number(int n)
 {
-	return (primechecker(n, 2));
-}
-
-/**
- * primechecker - entry point
- * Description: the checker part
- * @j: int
- * @k: int
- * Return: 0 - 1
-*/
-int primechecker(int j, int k)
-{
-	if (j == 1 || j < 0)
-		return (0);
-	if (j == k)
+	if (mod(1, n) == 2)
 		return (1);
-	if (j % k == 0)
-		return (0);
-	else
-		return (primechecker(j, k + 1));
+	return (0);
 }
-
