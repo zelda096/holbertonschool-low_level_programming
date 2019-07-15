@@ -5,12 +5,12 @@
  * main - entry point
  * @argc: the nums of args
  * @argv: the array with the args
- * Return: 0 or 1 if the args are not nums
+ * Return: 0 or 1
  */
 
 int main(int argc, char *argv[])
 {
-	int cont;
+	int counter;
 	int nums;
 	int sup;
 
@@ -29,12 +29,12 @@ int main(int argc, char *argv[])
 			printf("0\n");
 			return (1);
 		}
-		for (cont = 0; start[cont]; cont++)
+		for (counter = 0; start[counter]; counter++)
 		{
-		if (nums >= start[cont])
+		if (nums >= start[counter])
 		{
-			sup = sup + (nums / start[cont]);
-			nums = nums % start[cont];
+			sup = sup + (nums / start[counter]);
+			nums = nums % start[counter];
 		}
 		if (nums == 0)
 		{
