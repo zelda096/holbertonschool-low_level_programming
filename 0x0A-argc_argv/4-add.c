@@ -9,19 +9,19 @@
  */
 int main(int argc, char *argv[])
 {
-	int x, y, sum = 0;
+	int i, j, sum = 0;
 
-	for (x = 1; x < argc; x++)
+	for (i = 1; i < argc; i++)
 	{
-		for (y = 0; argv[x][y]; y++)
+		for (j = 0; argv[i][j]; j++)
 		{
-			if (isdigit(argv[x][y]) == 0)
+			if (isdigit(argv[i][j]) == 0)
 			{
 				printf("Error\n");
 				return (1);
 			}
 		}
-		sum += atoi(argv[x]);
+		sum += atoi(argv[i]);
 	}
 	printf("%d\n", sum);
 	return (0);
