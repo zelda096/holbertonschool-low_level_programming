@@ -2,14 +2,14 @@
 #include <stdlib.h>
 #include <ctype.h>
 /**
- * main - add numbers
- * @argc: number of arguments
- * @argv: array of pointers to the strings
+ * main - print number of arguments
+ * @argc: coutn
+ * @argv: array
  * Return: 0 or 1
  */
 int main(int argc, char *argv[])
 {
-	int i, j, sum = 0;
+	int i, j, res = 0;
 
 	for (i = 1; i < argc; i++)
 	{
@@ -21,8 +21,8 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-		sum += atoi(argv[i]);
+		res += atoi(argv[i]);
 	}
-	printf("%d\n", sum);
+	printf("%d\n", res);
 	return (0);
 }
