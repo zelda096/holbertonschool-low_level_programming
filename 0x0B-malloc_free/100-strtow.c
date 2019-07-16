@@ -1,70 +1,110 @@
-#include "holberton.h"
+#include <stdio.h>
 #include <stdlib.h>
-
+#include "holberton.h"
 /**
- * ch_free_grid - frees a 2 dimensional array.
- * @grid: multidimensional array of char.
- * @height: height of the array.
- *
- * Return: no return
+ * fworldl - entry point
+ * Description: find length of first word
+ * @s: string to eval
+ * @index: start looking word
+ * Return: find length word
  */
-void ch_free_grid(char **grid, unsigned int height)
+int fworldl(char *s, int index)
 {
-	if (grid != NULL && height != 0)
-	{
-		for (; height > 0; height--)
-			free(grid[height]);
-		free(grid[height]);
-		free(grid);
-	}
-}
+	int a;
+	int ln;
+	int res;
 
+	ln = 0;
+	res = 0;
+
+	for (a = index; s[a]; a++)
+	{
+		if (s[a] != ' ')
+		{
+			ln++;
+			res = 1;
+		}
+		else if (s[a] == ' ' && res)
+			break;
+	}
+	return (ln);
+}
 /**
- * strtow - splits a string into words.
- * @str: string.
- *
- * Return: pointer of an array of integers
+ * cwords - entry point
+ * Description: count the words in string
+ * @s: string to eval
+ * Return: number of words
+ */
+int cwords(char *s)
+{
+	int a;
+	int itsaW;
+	int n;
+
+	n = 0;
+
+	for (a = 0; s[a]; a++)
+	{
+		if (s[a] == ' ')
+			itsaW = 0;
+		else
+		{
+			if (itsaW == 0)
+				n++;
+			itsaW = 1;
+		}
+	}
+
+	return (n);
+}
+/**
+ * strtow - entry point
+ * Description: splits the string in the words
+ * @str: string to eval
+ * Return: * to array of chars
  */
 char **strtow(char *str)
 {
-	char **aout;
-	unsigned int c, height, i, j, a1;
+	char **ptr = NULL;
+	int a, b;
+	int numofW, c, d, e = 0;
 
-	if (str == NULL || *str == '\0')
+	if ((str == NULL) || (*str == '\0'))
 		return (NULL);
-	for (c = height = 0; str[c] != '\0'; c++)
-		if (str[c] != ' ' || str[c] != '\t')
-			if (str[c + 1] == ' ' || str[c + 1] == '\t' || str[c + 1] == '\0')
-				height++;
-	aout = malloc(height * sizeof(char *));
-	if (aout == NULL || height == 0)
-	{
-		free(aout);
+	numofW = cwords(str), ptr = malloc((numofW + 1) * sizeof(char *));
+	if (ptr == NULL)
 		return (NULL);
-	}
-	for (i = a1 = 0; i < height; i++, j++)
+	ptr[numofW] = NULL;
+	for (a = 0; str[a]; a++)
 	{
-		for (c = a1; str[c] != '\0'; c++)
+		if (str[a] != ' ')
 		{
-			if (str[c] == ' ' || str[c] == '\t')
-				a1++;
-			if (str[c] != ' ' || str[c] != '\t')
-				if (str[c + 1] == ' ' || str[c + 1] == '\t' || str[c + 1] == '\0')
+			c = fworldl(str, a);
+			if (d < numofW)
+			{
+				ptr[d] = malloc((c + 1) * sizeof(char));
+				if (ptr[d] == NULL)
 				{
-					aout[i] = malloc((c - a1 + 2) * sizeof(char));
-					if (aout[i] == NULL)
-					{
-						ch_free_grid(aout, i);
-						return (NULL);
-					}
-					break;
+					while (d >= 0)
+						free(ptr[--d]);
+					free(ptr);
+					return (NULL);
 				}
+				d++;
+			}
+			a = a + c;
 		}
-		j = 0;
-		for (; a1 <= c; a1++, j++)
-			aout[i][j] = str[a1];
-		aout[i][j] = '\0';
 	}
-	aout[i] = NULL;
-	return (aout);
+	b = 0, d = 0;
+	while (d < numofW)
+	{
+		for (; str[b] && (str[b] == ' '); b++)
+			;
+		e = 0;
+		for (a = b; str[a] && (str[a] != ' '); a++)
+			ptr[d][e++] = str[a];
+		ptr[d][e] = '\0';
+		b = b + e, d++;
+	}
+	return (ptr);
 }
