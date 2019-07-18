@@ -13,7 +13,7 @@ void *malloc_checked(unsigned int b)
 	mem = malloc(b);
 	if (mem == NULL)
 	{
-		free(memy);
+		free(mem);
 		exit(98);
 	}
 	return (mem);
