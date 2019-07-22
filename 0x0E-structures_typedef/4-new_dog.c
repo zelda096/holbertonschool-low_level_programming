@@ -1,6 +1,7 @@
 #include "dog.h"
+#include <stdlib.h>
 /**
- * init_dog - inicialite the struct dog
+ * new_dog - new dog
  * @name: django
  * @age: 3.5
  * @owner: jay
@@ -9,13 +10,13 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *p_dog;
+	dog_t *sasha;
 	int i, lname, lowner;
 
-	p_dog = malloc(sizeof(*p_dog));
-	if (p_dog == NULL || !(name) || !(owner))
+	sasha = malloc(sizeof(*sasha));
+	if (sasha == NULL || !(name) || !(owner))
 	{
-		free(p_dog);
+		free(sasha);
 		return (NULL);
 	}
 
@@ -25,26 +26,26 @@ dog_t *new_dog(char *name, float age, char *owner)
 	for (lowner = 0; owner[lowner]; lowner++)
 		;
 
-	p_dog->name = malloc(lname + 1);
-	p_dog->owner = malloc(lowner + 1);
+	sasha->name = malloc(lname + 1);
+	sasha->owner = malloc(lowner + 1);
 
-	if (!(p_dog->name) || !(p_dog->owner))
+	if (!(sasha->name) || !(sasha->owner))
 	{
-		free(p_dog->owner);
-		free(p_dog->name);
-		free(p_dog);
+		free(sasha->owner);
+		free(sasha->name);
+		free(sasha);
 		return (NULL);
 	}
 
 	for (i = 0; i < lname; i++)
-		p_dog->name[i] = name[i];
-	p_dog->name[i] = '\0';
+		sasha->name[i] = name[i];
+	sasha->name[i] = '\0';
 
-	p_dog->age = age;
+	sasha->age = age;
 
 	for (i = 0; i < lowner; i++)
-		p_dog->owner[i] = owner[i];
-	p_dog->owner[i] = '\0';
+		sasha->owner[i] = owner[i];
+	sasha->owner[i] = '\0';
 
-	return (p_dog);
+	return (sasha);
 }
