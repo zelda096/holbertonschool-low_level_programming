@@ -1,3 +1,15 @@
+<<<<<<< HEAD
+#include "holberton.h"
+#include <stdio.h>
+#include <stdlib.h>
+/**
+ * char *_strdup(char *str) - function returns a pointer to a new string which is a duplicate
+ * @str: pointer variable
+ * Return: NULL
+ */
+char *_strdup(char *str)
+{}
+=======
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
@@ -35,3 +47,4 @@ char *_strdup(char *str)
 
 	return (pr);
 }
+>>>>>>> 072aa2f8da9cfb6280ff52eb606ec2bcaf5c4d97
