@@ -1,8 +1,7 @@
 #include "dog.h"
-#include <stdlib.h>
 /**
- * new_dog - new dog
- * @name: new name
+ * init_dog - inicialite the struct dog
+ * @name: django
  * @age: 3.5
  * @owner: jay
  *
@@ -10,41 +9,42 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int val, count;
-	dog *doggie = malloc(sizeof(dog));
+	dog_t *p_dog;
+	int i, lname, lowner;
 
-	if (doggie == NULL)
-		return (NULL);
-
-	for (val = 0; name[val]; val++)
-		;
-	doggie->name = malloc((val + 1) * sizeof(char));
-	if (doggie->name == NULL)
+	p_dog = malloc(sizeof(*p_dog));
+	if (p_dog == NULL || !(name) || !(owner))
 	{
-		free(doggie);
+		free(p_dog);
 		return (NULL);
 	}
-	for (count = 0; count < val; count++)
-		doggie->name[count] = name[count];
-	doggie->name[count] = '\0';
 
-	if (age > 0.0)
-		doggie->age = age;
-	else
-		return (NULL);
-
-	for (val = 0; owner[val]; val++)
+	for (lname = 0; name[lname]; lname++)
 		;
-	doggie->owner = malloc((val + 1) * sizeof(char));
-	if (doggie->owner == NULL)
+
+	for (lowner = 0; owner[lowner]; lowner++)
+		;
+
+	p_dog->name = malloc(lname + 1);
+	p_dog->owner = malloc(lowner + 1);
+
+	if (!(p_dog->name) || !(p_dog->owner))
 	{
-		free(doggie->name);
-		free(doggie);
+		free(p_dog->owner);
+		free(p_dog->name);
+		free(p_dog);
 		return (NULL);
 	}
-	for (count = 0; count < val; count++)
-		doggie->owner[count] = owner[count];
-	doggie->owner[count] = '\0';
 
-	return (doggie);
+	for (i = 0; i < lname; i++)
+		p_dog->name[i] = name[i];
+	p_dog->name[i] = '\0';
+
+	p_dog->age = age;
+
+	for (i = 0; i < lowner; i++)
+		p_dog->owner[i] = owner[i];
+	p_dog->owner[i] = '\0';
+
+	return (p_dog);
 }
