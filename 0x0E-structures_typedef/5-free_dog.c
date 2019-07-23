@@ -2,7 +2,6 @@
 #include <stdlib.h>
 /**
  * free_dog - django free
- * Description: frees allocated dogs.
  * @d: Dog free
  * Return: none
  */
