@@ -7,7 +7,7 @@
  */
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
-	unsigned int x;
+	int x;
 	unsigned int s;
 	va_list args;
 
@@ -16,7 +16,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 	for (s = 0; s < n; s++)
 	{
 		x = va_arg(args, int);
-		printf("%i", x);
+		printf("%d", x);
 
 		if (separator == NULL)
 		{
