@@ -22,9 +22,13 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		{
 			return;
 		}
-		else if (x != n-1)
+		else if (x != n - 1)
 		{
 			printf("%s", separator);
+		}
+		if (y == NULL)
+		{
+			printf("(nil)");
 		}
 	}
 	va_end(args);
