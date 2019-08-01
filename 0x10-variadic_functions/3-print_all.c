@@ -1,0 +1,11 @@
+#include "variadic_functions.h"
+/**
+ * print_all - print all the types that be in the main
+ * @format: list of types of arguments that pass to the function
+ * Return: none
+ */
+void print_all(const char * const format, ...)
+{
+	va_end(args);
+	printf("\n");
+}
