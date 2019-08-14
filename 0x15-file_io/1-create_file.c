@@ -8,21 +8,31 @@
  */
 int create_file(const char *filename, char *text_content)
 {
-        int fd;
-        int x;
+	int fd;
+	int i;
 
-        if (filename == NULL)
-                return (-1);
-        if (text_content == NULL)
-                text_content = "";
+	if (filename == NULL)
+		return (-1);
+	if (text_content == NULL)
+		text_content = "";
 
-        fd = open(filename, O_CREAT | O_EXCL | O_WRONLY, 0600);
-
-        for (x = 0; text_content[x] != '\0'; x++)
-        {
-                if (write(fd, &text_content[x], 1) == -1)
-                        return (-1);
-        }
-        close(fd);
-        return (1);
+	fd = open(filename, O_CREAT | O_EXCL | O_WRONLY, 0600);
+	if (fd < 0)
+	{
+		if (errno == EEXIST)
+		{
+			fd = open(filename, O_WRONLY | O_TRUNC);
+			if (fd == -1)
+				return (-1);
+		}
+		else
+			return (-1);
+	}
+	for (i = 0; text_content[i] != '\0'; i++)
+	{
+		if (write(fd, &text_content[i], 1) == -1)
+			return (-1);
+	}
+	close(fd);
+	return (1);
 }
