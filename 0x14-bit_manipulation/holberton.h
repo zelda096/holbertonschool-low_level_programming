@@ -2,6 +2,8 @@
 #define _BIT_
 
 #include <stdlib.h>
+#include <stdio.h>
+#include <unistd.h>
 
 int _putchar(char c);
 
