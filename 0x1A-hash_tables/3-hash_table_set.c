@@ -2,8 +2,8 @@
 /**
  *hash_table_set - function
  *@ht: variable
- *@key: variable
- *@value: variable
+ *@key: constant
+ *@value: constant
  *Return: value
  */
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
