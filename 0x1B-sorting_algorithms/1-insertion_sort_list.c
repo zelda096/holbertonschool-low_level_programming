@@ -17,9 +17,9 @@ void change_nodes(listint_t *x, listint_t *y)
 	y->next = x;
 }
 /**
- * insertion_sort_list - perform an incremental sorting using insertion
- * sort method
- * @list: list to be sorted
+ * insertion_sort_list - incremental sorting using insertion
+ * sort algorithm
+ * @list: sorted
  * Return: none
  */
 void insertion_sort_list(listint_t **list)
